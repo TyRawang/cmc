@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0; padding:0;-webkit-box-sizing:border-box;	-moz-box-sizing:border-box;	box-sizing:border-box;}
+body{font-family: 'Roboto';  background:#000 url(img-01.jpg) no-repeat; background-size:cover;height:100vh}
+.login-box{   }
+.loginboxinner{ background-color:rgba(0,0,0,.7); padding:0; height:100vh;}
+.loginboxinner .card{ width: 96%; margin:0 ;  padding:60px 0 0}
+.body{ background-color:rgba(0,0,0,.7) ; padding:20px; border-radius:20px; border:3px rgba(255,255,255,.4) solid }
+
+
+.loginboxinner h1{ color:#fff; font-size:24px; text-align:left;   font-family: 'Roboto'; margin:0 0 7px 0;}
+.loginboxinner p{ text-align:left;  color:rgba(255,255,255,.6); position:relative; font-size:14px; margin-bottom:30px; position:relative; padding:0 0 15px 0}
+.loginboxinner p:after{background-color: #ea1b25;; content:""; left:0; position:absolute; bottom:0; margin:0 auto; width:70px; height:3px;}
+
+.loginbutton{ background-color: #ea1b25;; border:0; border-radius: 30px; color: #fff;
+font-weight: 700;padding: 10px 20px;}
+.input-group{ margin-bottom:35px; position:relative;}
+.input-group input{ width:100%; padding:17px 30px 17px 0px; background-color:transparent ; border:0; border-bottom:1px rgba(255,255,255,.6) solid; color:#fff ; font-family: 'Roboto';}
+.input-group .input-group-addon{ color:#fff; position:absolute; right:0; top:10px;}
+
+@media (min-width:768px) {
+
+.loginboxinner .card{ width:420px; margin:0 0 0 20px;  padding:80px 0 0}
+.body{  padding:50px;  }
+
+
+
+}

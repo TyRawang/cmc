@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="balloon"> <a href="#">
+    <div class="ballo-1 ballon bbb-1"> <strong><span> Virtual<br>
+ Disc</span></strong></div>
+    </a> <a href="#">
+    <div class="ballo-2 ballon bbb-2"> <strong><span> Virtual<br>
+ Disc</span></strong></div>
+    </a> </div>
+</div>
+<style>
+.balloon { background:url(img/mainpanda-iocn.png) no-repeat ; width:300px; height:127px;   position: relative; z-index:10}
+.balloon .ballo-1{position: absolute; left:0; top:0; background:url(img/ballon-1.png) no-repeat; width:79px; height:91px; z-index:-8}
+.balloon .ballo-2{ position: absolute;right:0; top:3px; background:url(img/ballon-2.png) no-repeat; width:84px; height:91px; z-index:-8}
+.balloon  div span{ top:37%; font-family:Verdana, Geneva, sans-serif; font-size:13px; left:0; right:0; text-align:center ; display:block; position:relative; text-decoration:none; color:#000 }
+.balloon .bbb-1{  -webkit-animation:balloon1 6s ease-in-out infinite;  -moz-animation:balloon1 6s ease-in-out infinite;  -o-animation:balloon1 6s ease-in-out infinite;  animation:balloon1 6s ease-in-out infinite; }
+.balloon .bbb-2{  -webkit-animation:balloon2 6s ease-in-out infinite;  -moz-animation:balloon2 6s ease-in-out infinite;
+  -o-animation:balloon2 6s ease-in-out infinite;  animation:balloon2 6s ease-in-out infinite;}   
+@-webkit-keyframes balloon1 {
+  0%,100%{ -webkit-transform:translateY(0) rotate(-6deg);}
+  50%{ -webkit-transform:translateY(-10px) rotate(8deg); }
+}
+@-moz-keyframes balloon1 {
+  0%,100%{ -moz-transform:translateY(0) rotate(-6deg);}
+  50%{ -moz-transform:translateY(-10px) rotate(8deg); }
+}
+@-o-keyframes balloon1 {
+  0%,100%{ -o-transform:translateY(0) rotate(-6deg);}
+  50%{ -o-transform:translateY(-10px) rotate(8deg); }
+}
+@keyframes balloon1 {
+  0%,100%{ transform:translateY(0) rotate(-6deg);}
+  50%{ transform:translateY(-10px) rotate(8deg); }
+}
+@-webkit-keyframes balloon2 {
+  0%,100%{ -webkit-transform:translateY(0) rotate(6eg);}
+  50%{ -webkit-transform:translateY(-10px) rotate(-8deg); }
+}
+@-moz-keyframes balloon2 {
+  0%,100%{ -moz-transform:translateY(0) rotate(6deg);}
+  50%{ -moz-transform:translateY(-10px) rotate(-8deg); }
+}
+@-o-keyframes balloon2 {
+  0%,100%{ -o-transform:translateY(0) rotate(6deg);}
+  50%{ -o-transform:translateY(-10px) rotate(-8deg); }
+}
+@keyframes balloon2 {
+  0%,100%{ transform:translateY(0) rotate(6deg);}
+  50%{ transform:translateY(-10px) rotate(-8deg); }
+}
+
+</style>

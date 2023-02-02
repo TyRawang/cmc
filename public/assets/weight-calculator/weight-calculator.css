@@ -1,0 +1,581 @@
+/* <style type="text/css"> */
+#root {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+
+#root .logo {
+  text-align: center;
+}
+
+* {
+margin: 0;
+padding: 0;
+}
+
+html, body {
+max-width: 100vw;
+}
+
+.container-fluid {
+width: 100vw;
+min-height: 100vh;
+max-width: 100vw;
+padding: 2rem 0;
+}
+
+.container {
+width: 90%;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.row {
+width: 100%;
+padding: 0;
+margin: 0;
+}
+
+.quote-calculation {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 2rem;
+}
+
+.small-column, .medium-column {
+height: 50vh;
+min-height: 350px;
+max-height: 450px;
+}
+
+.small-column {
+width: 20%;
+}
+
+.medium-column {
+width: 30%;
+}
+
+.calculation-area, .items-area, .item-type-area {
+border-right: 1px solid gray;
+border-top: 1px solid gray;
+border-bottom: 1px solid gray;
+background: #eeeeee;
+}
+
+.rooms-list-area {
+border-left: 1px solid gray;
+border-top: 1px solid gray;
+border-bottom: 1px solid gray;
+background: #eeeeee;
+}
+
+.calculation-area {
+background: white;
+}
+
+.item-type-area {
+overflow: auto;
+}
+
+.room-list, .item-type {
+list-style: none;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: flex-start;
+}
+
+.room-list li, .item-type li {
+width: 100%;
+}
+
+.room-list a, .item-type a {
+display: block;
+text-decoration: none;
+font-size: .9rem;
+font-weight: bold;
+text-align: center;
+padding: 1.646rem;
+color: black;
+border-bottom: 1px solid grey;
+}
+
+.room-list a {
+border-right: 1px solid grey;
+}
+
+.room-list li:last-child a, .item-type li:last-child a{
+border-bottom: none;
+}
+
+.item-type a, .item-type a:visited {
+padding: .405rem;
+}
+
+.room-list a:hover, .item-type a:hover {
+background-color: lightgrey;
+color: white;
+}
+
+.room-list a.link-active:hover {
+background-color: white;
+box-shadow: -2px 3px 10px #888888;
+border: none;
+color: black;
+}
+
+.room-list a.link-active {
+background-color: white;
+box-shadow: -2px 3px 10px #888888;
+border-right: none;
+}
+
+.item-type a.link-active {
+background-color: #6cb738;
+box-shadow: 1px 1px 5px #888888 inset;
+color: white;
+}
+
+.item-type a.link-active:hover {
+background: #6cb738;
+box-shadow: 1px 1px 10px #888888 inset;;
+}
+
+.calculation-area, .items-area {
+overflow-y: scroll;
+}
+
+.calculation-items, .moving-items {
+height: 100%;
+width: 100%;
+display: flex;
+align-items: flex-start;
+align-content: flex-start;
+flex-wrap: wrap;
+}
+
+.calculation-item {
+display: block;
+width: 46px;
+height: 46px;
+margin: .5rem;
+border: 1px solid black;
+border-radius: 5px;
+background: url("https://cargo.webdesigncalgary.net/assets/weight-calculator/sprite.gif");
+cursor: pointer;
+}
+
+.item-display {
+display: block;
+width: 46px;
+height: 46px;
+margin: .5rem;
+border: 1px solid black;
+border-radius: 5px;
+background: url("https://cargo.webdesigncalgary.net/assets/weight-calculator/sprite.gif");
+cursor: pointer;
+}
+
+.item-display:hover {
+box-shadow: 0 0 5px 1px #67b233;
+}
+
+.qtyBadge {
+padding: 2px 8px;
+border-radius: 50%;
+background-color: #67b233;
+color: white;
+margin-left: 45px;
+margin-top: -65px;
+display: flex;
+font-size: .8rem;
+}
+
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
+font-family: Flaticon;
+font-size: 2rem;
+font-style: normal;
+margin-left: 0;
+}
+
+.calculation-summery-row {
+display: flex;
+justify-content: space-between;
+}
+
+.summery-head {
+width: 50%;
+}
+
+.item-detail-margin {
+width: 28%;
+text-align: center;
+/*margin-left: 15rem;*/
+}
+
+.call-to-action {
+width: 20%;
+}
+
+.summeryBtn {
+padding: 10px 20px;
+border: none;
+background-color: #67b233;
+cursor: pointer;
+/*margin-top: 10px;*/
+font-size: 1.1em;
+color: white;
+font-weight: bold;
+}
+
+.summery-container {
+width: 90%;
+max-width: 1100px;
+padding: 5%;
+margin: 0 auto;
+background-color: aliceblue;
+}
+
+.summery-container h3 {
+color: #607d8b;
+font-size: 20px;
+font-weight: bolder;
+margin-bottom: 20px;
+padding-top: 30px;
+padding-left: 30px;
+}
+
+.summery-container > p {
+width: 70%;
+margin: 0 auto;
+font-size: 1.5rem;
+text-align: center;
+}
+
+.summery-inventory {
+width: 70%;
+max-width: 100%;
+/*padding: 30px;*/
+margin: 20px auto 0;
+background-color: white;
+box-shadow: 2px 2px 10px grey;
+}
+
+.moving-from-to {
+display: flex;
+justify-content: space-between;
+padding: 0 30px 0;
+margin-bottom: 20px;
+}
+
+.map-area {
+background: url("https://cargo.webdesigncalgary.net/assets/weight-calculator/map.jpeg") center no-repeat;
+background-size: cover;
+width: 49%;
+height: 150px;
+}
+
+.address-area {
+width: 49%;
+}
+
+.total-summery-line p {
+border-bottom: 2px solid black;
+padding: 5px 0;
+margin: 0 30px;
+}
+
+.summery-room-name {
+text-align: center;
+font-size: 20px;
+padding: 10px 0;
+background: #fafafa;
+color: #607d8b;
+border-top: 1px solid grey;
+border-bottom: 2px solid grey;
+}
+
+.summery-room-items-wrapper {
+padding: 10px 30px;
+}
+
+.summery-room-items-wrapper .item-lines {
+padding: 5px 0;
+border-bottom: 1px solid #dddddd;
+display: flex;
+justify-content: space-between;
+}
+
+.summery-item-icon {
+width: 30%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.summery-icon-display{
+width: 46px;
+height: 46px;
+border: 1px solid black;
+border-radius: 5px;
+background: url("https://cargo.webdesigncalgary.net/assets/weight-calculator/sprite.gif") no-repeat;
+}
+
+.summery-item-detail {
+width: 68%;
+}
+
+.summery-item-detail h3 {
+padding: 0;
+}
+
+.summery-item-detail-specifics {
+display: flex;
+justify-content: space-between;
+}
+
+.summery-item-detail-specifics > div {
+width: 49%;
+}
+
+.summery-item-detail-specifics h4 {
+color: #67b233;
+}
+
+.summery-item-detail-specifics span {
+color: black;
+font-weight: lighter;
+margin-top: 0;
+}
+
+.faq-terms {
+padding: 30px;
+}
+
+.faq-terms ul {
+padding: 30px;
+}
+
+.faq-terms a {
+text-decoration: none;
+}
+
+.icon-1 {background-position: 0 -0px}
+.icon-2 {background-position: 0 -46px}
+.icon-3 {background-position: 0 -92px}
+.icon-4 {background-position: 0 -138px}
+.icon-5 {background-position: 0 -184px}
+.icon-6 {background-position: 0 -230px}
+.icon-7 {background-position: 0 -276px}
+.icon-8 {background-position: 0 -322px}
+.icon-9 {background-position: 0 -368px}
+.icon-10 {background-position: 0 -414px}
+.icon-11 {background-position: 0 -460px}
+.icon-12 {background-position: 0 -506px}
+.icon-13 {background-position: 0 -552px}
+.icon-14 {background-position: 0 -598px}
+.icon-15 {background-position: 0 -644px}
+.icon-16 {background-position: 0 -690px}
+.icon-17 {background-position: 0 -736px}
+.icon-18 {background-position: 0 -782px}
+.icon-19 {background-position: 0 -828px}
+.icon-20 {background-position: 0 -874px}
+.icon-21 {background-position: 0 -920px}
+.icon-22 {background-position: 0 -966px}
+.icon-23 {background-position: 0 -1012px}
+.icon-24 {background-position: 0 -1058px}
+.icon-59 {background-position: 0 -1104px}
+.icon-60 {background-position: 0 -1150px}
+.icon-61 {background-position: 0 -1196px}
+.icon-62 {background-position: 0 -1242px}
+.icon-63 {background-position: 0 -1288px}
+.icon-64 {background-position: 0 -1334px}
+.icon-65 {background-position: 0 -1380px}
+.icon-44 {background-position: 0 -1426px}
+.icon-45 {background-position: 0 -1472px}
+.icon-46 {background-position: 0 -1518px}
+.icon-47 {background-position: 0 -1564px}
+.icon-48 {background-position: 0 -1610px}
+.icon-49 {background-position: 0 -1656px}
+.icon-50 {background-position: 0 -1702px}
+.icon-51 {background-position: 0 -1748px}
+.icon-52 {background-position: 0 -1794px}
+.icon-53 {background-position: 0 -1840px}
+.icon-54 {background-position: 0 -1886px}
+.icon-55 {background-position: 0 -1932px}
+.icon-56 {background-position: 0 -1978px}
+.icon-57 {background-position: 0 -2024px}
+.icon-58 {background-position: 0 -2070px}
+.icon-25 {background-position: 0 -2116px}
+.icon-26 {background-position: 0 -2162px}
+.icon-27 {background-position: 0 -2208px}
+.icon-28 {background-position: 0 -2254px}
+.icon-29 {background-position: 0 -2300px}
+.icon-30 {background-position: 0 -2346px}
+.icon-31 {background-position: 0 -2392px}
+.icon-32 {background-position: 0 -2438px}
+.icon-33 {background-position: 0 -2484px}
+.icon-34 {background-position: 0 -2530px}
+.icon-36 {background-position: 0 -2576px}
+.icon-38 {background-position: 0 -2622px}
+.icon-39 {background-position: 0 -2668px}
+.icon-40 {background-position: 0 -2714px}
+.icon-41 {background-position: 0 -2760px}
+.icon-42 {background-position: 0 -2806px}
+.icon-43 {background-position: 0 -2852px}
+.icon-78 {background-position: 0 -2898px}
+.icon-79 {background-position: 0 -2944px}
+.icon-80 {background-position: 0 -2990px}
+.icon-81 {background-position: 0 -3036px}
+.icon-82 {background-position: 0 -3082px}
+.icon-83 {background-position: 0 -3128px}
+.icon-84 {background-position: 0 -3174px}
+.icon-85 {background-position: 0 -3220px}
+.icon-86 {background-position: 0 -3266px}
+.icon-87 {background-position: 0 -3312px}
+.icon-146 {background-position: 0 -3358px}
+.icon-147 {background-position: 0 -3404px}
+.icon-148 {background-position: 0 -3450px}
+.icon-149 {background-position: 0 -3496px}
+.icon-151 {background-position: 0 -3542px}
+.icon-152 {background-position: 0 -3588px}
+.icon-153 {background-position: 0 -3634px}
+.icon-155 {background-position: 0 -3680px}
+.icon-156 {background-position: 0 -3726px}
+.icon-157 {background-position: 0 -3772px}
+.icon-158 {background-position: 0 -3818px}
+.icon-159 {background-position: 0 -3864px}
+.icon-160 {background-position: 0 -3910px}
+.icon-161 {background-position: 0 -3956px}
+.icon-162 {background-position: 0 -4002px}
+.icon-163 {background-position: 0 -4048px}
+.icon-164 {background-position: 0 -4094px}
+.icon-165 {background-position: 0 -4140px}
+.icon-166 {background-position: 0 -4186px}
+.icon-167 {background-position: 0 -4232px}
+.icon-168 {background-position: 0 -4278px}
+.icon-169 {background-position: 0 -4324px}
+.icon-170 {background-position: 0 -4370px}
+.icon-171 {background-position: 0 -4416px}
+.icon-172 {background-position: 0 -4462px}
+.icon-173 {background-position: 0 -4508px}
+.icon-88 {background-position: 0 -4554px}
+.icon-89 {background-position: 0 -4600px}
+.icon-90 {background-position: 0 -4646px}
+.icon-91 {background-position: 0 -4692px}
+.icon-92 {background-position: 0 -4738px}
+.icon-93 {background-position: 0 -4784px}
+.icon-94 {background-position: 0 -4830px}
+.icon-95 {background-position: 0 -4876px}
+.icon-96 {background-position: 0 -4922px}
+.icon-97 {background-position: 0 -4968px}
+.icon-98 {background-position: 0 -5014px}
+.icon-99 {background-position: 0 -5060px}
+.icon-100 {background-position: 0 -5106px}
+.icon-101 {background-position: 0 -5152px}
+.icon-102 {background-position: 0 -5198px}
+.icon-103 {background-position: 0 -5244px}
+.icon-104 {background-position: 0 -5290px}
+.icon-105 {background-position: 0 -5336px}
+.icon-106 {background-position: 0 -5382px}
+.icon-107 {background-position: 0 -5428px}
+.icon-108 {background-position: 0 -5474px}
+.icon-109 {background-position: 0 -5520px}
+.icon-110 {background-position: 0 -5566px}
+.icon-111 {background-position: 0 -5612px}
+.icon-112 {background-position: 0 -5658px}
+.icon-113 {background-position: 0 -5704px}
+.icon-114 {background-position: 0 -5750px}
+.icon-115 {background-position: 0 -5796px}
+.icon-116 {background-position: 0 -5842px}
+.icon-117 {background-position: 0 -5888px}
+.icon-118 {background-position: 0 -5934px}
+.icon-119 {background-position: 0 -5980px}
+.icon-120 {background-position: 0 -6026px}
+.icon-121 {background-position: 0 -6072px}
+.icon-122 {background-position: 0 -6118px}
+.icon-123 {background-position: 0 -6164px}
+.icon-124 {background-position: 0 -6210px}
+.icon-125 {background-position: 0 -6256px}
+.icon-126 {background-position: 0 -6302px}
+.icon-127 {background-position: 0 -6348px}
+.icon-128 {background-position: 0 -6394px}
+.icon-129 {background-position: 0 -6440px}
+.icon-130 {background-position: 0 -6486px}
+.icon-131 {background-position: 0 -6532px}
+.icon-132 {background-position: 0 -6578px}
+.icon-133 {background-position: 0 -6624px}
+.icon-134 {background-position: 0 -6670px}
+.icon-135 {background-position: 0 -6716px}
+.icon-136 {background-position: 0 -6762px}
+.icon-137 {background-position: 0 -6808px}
+.icon-138 {background-position: 0 -6854px}
+.icon-139 {background-position: 0 -6900px}
+.icon-140 {background-position: 0 -6946px}
+.icon-141 {background-position: 0 -6992px}
+.icon-142 {background-position: 0 -7038px}
+.icon-143 {background-position: 0 -7084px}
+.icon-144 {background-position: 0 -7130px}
+.icon-145 {background-position: 0 -7176px}
+.icon-184 {background-position: 0 -7222px}
+.icon-185 {background-position: 0 -7268px}
+.icon-186 {background-position: 0 -7314px}
+.icon-187 {background-position: 0 -7360px}
+.icon-188 {background-position: 0 -7406px}
+.icon-189 {background-position: 0 -7452px}
+.icon-190 {background-position: 0 -7498px}
+.icon-191 {background-position: 0 -7544px}
+.icon-192 {background-position: 0 -7590px}
+.icon-193 {background-position: 0 -7636px}
+.icon-194 {background-position: 0 -7682px}
+.icon-195 {background-position: 0 -7728px}
+.icon-196 {background-position: 0 -7774px}
+.icon-197 {background-position: 0 -7820px}
+.icon-198 {background-position: 0 -7866px}
+.icon-199 {background-position: 0 -7912px}
+.icon-200 {background-position: 0 -7958px}
+.icon-201 {background-position: 0 -8004px}
+.icon-174 {background-position: 0 -8050px}
+.icon-175 {background-position: 0 -8096px}
+.icon-176 {background-position: 0 -8142px}
+.icon-177 {background-position: 0 -8188px}
+.icon-178 {background-position: 0 -8234px}
+.icon-179 {background-position: 0 -8280px}
+.icon-180 {background-position: 0 -8326px}
+.icon-181 {background-position: 0 -8372px}
+.icon-182 {background-position: 0 -8418px}
+.icon-183 {background-position: 0 -8464px}
+.icon-66 {background-position: 0 -8510px}
+.icon-67 {background-position: 0 -8556px}
+.icon-68 {background-position: 0 -8602px}
+.icon-69 {background-position: 0 -8648px}
+.icon-70 {background-position: 0 -8694px}
+.icon-71 {background-position: 0 -8740px}
+.icon-72 {background-position: 0 -8786px}
+.icon-73 {background-position: 0 -8832px}
+.icon-74 {background-position: 0 -8878px}
+.icon-75 {background-position: 0 -8924px}
+.icon-76 {background-position: 0 -8970px}
+.icon-77 {background-position: 0 -9016px}
+.icon-202 {background-position: 0 -9062px}
+.icon-203 {background-position: 0 -9108px}
+.icon-204 {background-position: 0 -9154px}
+.icon-205 {background-position: 0 -9200px}
+.icon-206 {background-position: 0 -9246px}
+.icon-207 {background-position: 0 -9292px}
+.icon-208 {background-position: 0 -9338px}
+.icon-209 {background-position: 0 -9384px}
+.icon-210 {background-position: 0 -9430px}
+.icon-211 {background-position: 0 -9476px}
+.icon-212 {background-position: 0 -9522px}
+.icon-213 {background-position: 0 -9568px}
+.icon-214 {background-position: 0 -9614px}
+.icon-215 {background-position: 0 -9660px}
+/* </style> */
